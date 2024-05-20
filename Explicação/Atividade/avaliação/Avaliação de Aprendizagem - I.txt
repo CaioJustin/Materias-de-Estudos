@@ -1,0 +1,41 @@
+Elabore um algoritmo usando operações lógicas para informar se uma pessoa é obrigada a votar.
+
+Considere que a regra é que menores de 18 e a partir de 65 anos, não são obrigados a votar.
+
+Solicite apenas a idade do usuário. 
+
+
+
+Um candidato que deseja se inscrever para um curso, contudo, este precisa ter 18 anos ou mais para realizar sua inscrição. Crie um algoritmo que leia os seguintes dados do candidato: 
+
+- Nome;
+
+- Sexo.
+
+- Ano de nascimento;
+
+
+
+Com base nos dados solicitados, verifique se o candidato pode se inscrever no curso, caso atenda o critério da idade, mostre os dados do candidato. Caso contrário, mostre a mensagem: "Não é possível realizar o cadastro, o (a) candidato (a) deve ter 18 anos ou mais." (2 pontos)
+
+
+Escreva um algoritmo que leia as 5 notas de um aluno. Caso a nota informada seja menor que 0 ou maior que 10, mostre a pergunta novamente até que sejam informadas as 5 notas.
+Após calcular a média aritmética, verifique se o aluno está aprovado ou reprovado, considerando que a média para aprovação é maior ou igual a 7. Caso a média seja menor que 7, o aluno está reprovado
+
+
+Faça um algoritmo que leia uma quantidade não determinada de números inteiros positivos. Calcule e ao final da leitura dos dados, mostre:
+
+- A quantidade de números; 
+
+- A soma dos números;
+
+- A média dos números. 
+
+
+
+O final da leitura acontecerá quando for lido um valor negativo. 
+
+
+Escrever um programa de computador que leia 7 números inteiros e, ao final, apresente: (2 pontos)
+
+- quantos números são pares; - quantos números são ímpares.

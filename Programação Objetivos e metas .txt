@@ -1,0 +1,30 @@
+Plano de Atuação/Objetivos para aprender ate o Fim de 2024.1
+
+______________________________________________________________________
+*Front-End
+
+HTML-linguagem de marcação de texto         (Curso OneBit code/Relembrar)
+CSS- linguagem Cascading Style Sheet	    (Curso OneBit code/Relembrar) 
+JavaScript 				    (Curso OneBit code/Começar) 
+
+*Front-End FrameWorks
+
+-Indefinido
+============================================================================
+
+*Back-End
+
+JavaScript (Curso OneBit code) 
+Java 
+
+*Back-End FrameWorks
+
+-Indefinido
+============================================================================
+*Banco de dados Msql e Sql
+
+*Programação orientada a Objeto 
+
+========================================================
+Começar o DuoLingo
+===============================================================================

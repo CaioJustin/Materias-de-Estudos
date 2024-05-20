@@ -1,0 +1,26 @@
+Exercício 1: 
+Crie uma struct Contato para representar informações de contatos, incluindo nome, número de telefone e email. Solicite que o usuário cadastre 3 contatos. Escreva uma função que recebe um nome como parâmetro, e retorna o número de telefone correspondente a esse nome. Em seguida, implemente um programa que utiliza essa função para buscar e imprimir o número de telefone de um contato específico.
+
+
+Exercício 2: 
+Crie uma função chamada "calcularMedia" que recebe como parâmetro uma struct "Aluno", esta struct terá informações como: nome, data de nascimento, duas notas e média e retorna a média das notas. Em seguida, crie um programa que declare um array de 5 alunos e utilize a função "calcularMedia" para imprimir a média de cada aluno. Também crie uma função para verificar se um aluno está aprovado ou reprovado sendo necessário média maior ou igual a 7,0 para aprovação.
+
+
+Exercício 3: 
+Desenvolva uma struct "Produto" que contenha informações como nome, preço e quantidade em estoque. Em seguida, desenvolva um menu para facilitar a escolha das opções:
+1 - Adicionar produto
+2 - Realizar uma compra
+3 - Consultar estoque
+4 - Sair do programa. 
+
+Escreva funções necessárias para calcular o valor total em estoque do produto e para atualizar a quantidade em estoque com base em uma compra. Crie um programa que utiliza essas funções para um produto.
+
+
+Exercício 4: 
+
+Modele uma struct "ContaBancaria" que represente uma conta bancária com número da conta, nome do titular, saldo e tipo de conta (poupança ou corrente). Implemente funções para depositar e sacar dinheiro da conta, bem como para imprimir o saldo atual. Crie um programa que utilize essas funções para simular operações bancárias. Crie um menu para as operações disponíveis.
+
+
+Exercício 5: 
+
+Crie uma struct "Funcionario" com membros para nome, cargo e salário. Escreva uma função que recebe um array de funcionários e um cargo como parâmetro, e retorna a média salarial dos funcionários com esse cargo. Em seguida, implemente um programa que utiliza essa função para calcular e imprimir a média salarial dos programadores em uma empresa

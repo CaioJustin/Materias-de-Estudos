@@ -1,0 +1,77 @@
+Qustão 1
+
+
+crie um programa que leia 6 numero inteiro em um vetor e informe
+
+os numeros inserido pelo usuario
+quantos numeros são pares
+quantos numeros são impares
+
+
+______________________________
+Qustão 2
+
+crie uma struct eimplemente um proframa que leia as informnaçoes de um livro  com os seguintes
+dados
+
+nome
+autor
+categoria
+preço
+
+crie uma função que de um desconto de 10% no preço do livro mostre os dados
+do livro juntamente com seu novo preço 
+
+______________________________
+Qustão 3
+
+utilizando struct crie um programa que leia o nome,4nota e a media de um aluno e calcule a media aritmetica para os 3 aluno 
+
+verifique a situação do aluno considerando
+
+media igual ou maior que 7,0 aprovado
+media entre 5,0 e 6,0 recuperação
+media menor que 5,0 reprovado
+
+mostre os dados dos aluno,juntamente com suas 4 notas media e situação 
+informadas pelo usuario
+
+______________________________
+Qustão 4
+
+implemente um programa que permita cadastrar contatos telefonicos em uma agenta utilizando vetores para armazenar os nome e numero de telefone
+
+permita que o usuario digite o codigo 
+
+1- para adicinar um numero 
+2- para mostras os números cadastrados e encerrar o software 
+
+______________________________
+Qustão 5
+
+
+crier um programa que solicite ao usuario 
+
+-Nome
+-Idade
+-E-mail
+-Telefone
+
+Usando Switch-case mostre o meno abaixo e utilizado função mostre para o usuario os dados soliciotado conforme a opção desejada
+
+1-Mostra nome e idade 
+2-Mostra nome e e-mail
+3-Mostra nome e telefone
+4-Mostra todas as informações
+0-Sair do programa
+
+caso o usuario informe um numero que não esteja no menu acima ,siga aos seguintes passo
+
+sera exibida a mensagem "Opção incorreta,Tente Novamente "
+
+limpe a tela e mostre o menu novamente para o Usuario
+
+para sair do programa deve se diigta o numero zero 
+caso contrario o menu sera exibido novamente 
+-
+
