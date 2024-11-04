@@ -1,0 +1,7 @@
+Criar:
+VIEW: Seleção dos livros com seus respectivo autores 
+STORED PROCEDURE: Seleção dos livros de uma determinada categoria
+STORED PROCEDURE: Seleção da quantidade de exemplares dos livros de uma determinada categoria
+STORED PROCEDURE: Seleção da quantidade de livros de uma determinada categoria - retornando essa quantidade por meio do parâmetro "quantidade"
+FUNCTION: retorna a quantidade de livros de uma determinada categoria
+TRIGGER: Decrementar a quantidade de exemplares sempre que um livro for emprestado

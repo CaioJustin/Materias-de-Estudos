@@ -1,0 +1,59 @@
+/* VIEW: Seleção dos livros com seus respecƟvos autores */
+CREATE VIEW LIVRO_AUTOR AS
+	SELECT L.tituloLivro, A.nomeAutor 
+    FROM livro L, autor A, autor_livro AL
+	WHERE (AL.fk_Livro_ISBN = L.ISBN) and (AL.fk_Autor_idAutor = A.idAutor);
+    
+/* ou */
+    
+CREATE VIEW LIVRO_AUTOR AS
+	SELECT L.tituloLivro, A.nomeAutor 
+    FROM autor_livro AL
+    INNER JOIN livro L ON  AL.fk_Livro_ISBN = L.ISBN
+    INNER JOIN autor A ON AL.fk_Autor_idAutor = A.idAutor;
+    
+/* STORED PROCEDURE: Selação dos livros de uma determinada categoria */
+CREATE PROCEDURE Verificar_Quantidade_livros_categoria (IN categoria INT)
+	SELECT ISBN, tituloLivro, anoPublicacao, quantExemplares  FROM livro WHERE fk_Categoria_idCategoria = categoria;
+
+CALL Verificar_Quantidade_livros_categoria(3);
+
+/* STORED PROCEDURE: Selação da quantidade de exemplares dos livros de uma determinada categoria */
+CREATE PROCEDURE Verificar_Quantidade_Exemplares_categoria (IN categoria INT)
+	SELECT SUM(quantExemplares)  FROM livro 
+    GROUP BY fk_Categoria_idCategoria
+    HAVING fk_Categoria_idCategoria = categoria;
+    
+CALL Verificar_Quantidade_Exemplares_categoria(3);
+    
+/* STORED PROCEDURE: Selação da quantidade de livros de uma determinada categoria - retornando essa quantidade atráves do parametro "quantidade" */
+CREATE PROCEDURE Verificar_Quantidade_livros (OUT quantidade INT)
+	SELECT COUNT(*) INTO quantidade FROM livro;
+    
+CALL Verificar_Quantidade_livros(@quant);
+SELECT @quant;
+
+/* FUNCTION: retorna a quantidade de livros de uma determinada categoria */
+DELIMITER $
+CREATE FUNCTION Ver_Quantidade_livros(categoria INT) 
+RETURNS int
+READS SQL DATA
+BEGIN
+	return (SELECT COUNT(*) FROM livro WHERE fk_Categoria_idCategoria = categoria);
+END$
+DELIMITER ;
+
+SELECT Ver_Quantidade_livros(3);
+
+/* TRIGGER */
+
+DELIMITER $
+CREATE TRIGGER TGR_EMPRESTIMO_BI AFTER INSERT
+ON emprestimo_livro
+FOR EACH ROW
+BEGIN
+	UPDATE livro SET quantExemplares = quantExemplares - 1
+	WHERE ISBN = NEW.fk_Livro_ISBN;
+END$
+
+DELIMITER ;

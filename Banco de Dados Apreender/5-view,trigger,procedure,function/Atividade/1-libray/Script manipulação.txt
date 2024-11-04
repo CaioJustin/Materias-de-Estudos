@@ -1,0 +1,65 @@
+INSERT INTO usuario (idUsuario, nomeUsuario, email, logradouro, numero, CEP, cidade, estado)
+VALUES (1, "Ana", "ana@gmail.com", "Av Dendezeiros", 99,40456789,"Salvador","BA");
+
+INSERT INTO usuario (idUsuario, nomeUsuario, email, logradouro, numero, CEP, cidade, estado)
+VALUES (2, "Bruno", "bruno@gmail.com", "Av Beira Mar", 55,40963741,"Salvador","BA");
+
+INSERT INTO usuario (idUsuario, nomeUsuario, email, logradouro, numero, CEP, cidade, estado)
+VALUES (3, "Carlos", "carlos@gmail.com", "Rua da Paciencia", 45,40588123,"Salvador","BA");
+
+INSERT INTO usuario (idUsuario, nomeUsuario, email, logradouro, numero, CEP, cidade, estado)
+VALUES (4, "Danilo", "danilo@gmail.com", "Rua do Jardins", 33,40852417,"Salvador","BA");
+
+INSERT INTO usuario (idUsuario, nomeUsuario, email, logradouro, numero, CEP, cidade, estado)
+VALUES (5, "Eduardo", "eduardo@gmail.com", "Av Porto dos Mastros", 11,40255110,"Salvador","BA");
+
+
+INSERT INTO autor (idAutor, nomeAutor) VALUES (1, "João");
+INSERT INTO autor (idAutor, nomeAutor) VALUES (2, "Maria");
+INSERT INTO autor (idAutor, nomeAutor) VALUES (3, "José");
+
+INSERT INTO categoria (idCategoria, nomeCategoria) VALUES (1, "Romance");
+INSERT INTO categoria (idCategoria, nomeCategoria) VALUES (2, "Drama");
+INSERT INTO categoria (idCategoria, nomeCategoria) VALUES (3, "Técnico");
+
+INSERT INTO livro (ISBN, tituloLivro, anoPublicacao, fk_Categoria_idCategoria,quantExemplares)
+VALUES ("111","Que rei sou eu", 1999,2,3);
+INSERT INTO autor_livro (fk_Livro_ISBN,fk_Autor_idAutor) VALUES ("111",1);
+
+INSERT INTO livro (ISBN, tituloLivro, anoPublicacao, fk_Categoria_idCategoria,quantExemplares)
+VALUES ("222","Elas por Elas", 2001,1,5);
+INSERT INTO autor_livro (fk_Livro_ISBN,fk_Autor_idAutor) VALUES ("222",1);
+INSERT INTO autor_livro (fk_Livro_ISBN,fk_Autor_idAutor) VALUES ("222",2);
+
+INSERT INTO livro (ISBN, tituloLivro, anoPublicacao, fk_Categoria_idCategoria,quantExemplares)
+VALUES ("333","C completo e total", 1995,3,2);
+INSERT INTO autor_livro (fk_Livro_ISBN,fk_Autor_idAutor) VALUES ("333",3);
+
+INSERT INTO livro (ISBN, tituloLivro, anoPublicacao, fk_Categoria_idCategoria,quantExemplares)
+VALUES ("444","Java em 21 dias", 2005,3,1);
+INSERT INTO autor_livro (fk_Livro_ISBN,fk_Autor_idAutor) VALUES ("444",3);
+
+INSERT INTO livro (ISBN, tituloLivro, anoPublicacao, fk_Categoria_idCategoria,quantExemplares)
+VALUES ("555","Romeu e Julieta", 1985,2,9);
+INSERT INTO autor_livro (fk_Livro_ISBN,fk_Autor_idAutor) VALUES ("555",2);
+
+INSERT INTO emprestimo (idEmprestimo,fk_Usuario_idUsuario,dataEmprestimo,dataDevolucaoPrevista)
+VALUES (1, 1, "2023-07-04", "2023-07-25");
+INSERT INTO emprestimo_livro (fk_Emprestimo_idEmprestimo,fk_Livro_ISBN)
+VALUES (1,"111");
+INSERT INTO emprestimo_livro (fk_Emprestimo_idEmprestimo,fk_Livro_ISBN)
+VALUES (1,"222");
+
+
+INSERT INTO emprestimo (idEmprestimo,fk_Usuario_idUsuario,dataEmprestimo,dataDevolucaoPrevista)
+VALUES (2, 4, "2023-07-03", "2023-07-20");
+INSERT INTO emprestimo_livro (fk_Emprestimo_idEmprestimo,fk_Livro_ISBN)
+VALUES (2,"111");
+INSERT INTO emprestimo_livro (fk_Emprestimo_idEmprestimo,fk_Livro_ISBN)
+VALUES (2,"333");
+
+
+INSERT INTO emprestimo (idEmprestimo,fk_Usuario_idUsuario,dataEmprestimo,dataDevolucaoPrevista)
+VALUES (3, 3, "2023-07-05", "2023-07-15");
+INSERT INTO emprestimo_livro (fk_Emprestimo_idEmprestimo,fk_Livro_ISBN)
+VALUES (3,"555");

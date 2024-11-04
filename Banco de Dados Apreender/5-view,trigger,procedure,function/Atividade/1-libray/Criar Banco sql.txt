@@ -1,0 +1,93 @@
+CREATE SCHEMA BDBIBLIOTECA;
+
+USE BDBIBLIOTECA;
+
+CREATE TABLE Usuario (
+    idUsuario NUMERIC PRIMARY KEY,
+    nomeUsuario VARCHAR(30),
+    email VARCHAR(40),
+    logradouro VARCHAR(30),
+    numero NUMERIC,
+    CEP VARCHAR(10),
+    cidade VARCHAR(20),
+    estado VARCHAR(2)
+);
+
+CREATE TABLE TelUsuario (
+    idTelUsuario NUMERIC PRIMARY KEY,
+    fk_Usuario_idUsuario NUMERIC,
+    telefoneUsuario VARCHAR(12)
+);
+
+CREATE TABLE Categoria (
+    idCategoria NUMERIC PRIMARY KEY,
+    nomeCategoria VARCHAR(30)
+);
+
+CREATE TABLE Autor (
+    idAutor NUMERIC PRIMARY KEY,
+    nomeAutor VARCHAR(30)
+);
+
+CREATE TABLE Livro (
+    ISBN VARCHAR(15) PRIMARY KEY,
+    tituloLivro VARCHAR(30),
+    anoPublicacao NUMERIC,
+    quantExemplares NUMERIC,
+    fk_Categoria_idCategoria NUMERIC
+);
+
+CREATE TABLE Autor_Livro (
+    fk_Livro_ISBN VARCHAR(15),
+    fk_Autor_idAutor NUMERIC,
+    PRIMARY KEY(fk_Livro_ISBN,fk_Autor_idAutor)
+);
+
+CREATE TABLE Emprestimo (
+    idEmprestimo NUMERIC PRIMARY KEY,
+    fk_Usuario_idUsuario NUMERIC,
+    dataEmprestimo DATE,
+    dataDevolucaoPrevista DATE,
+    dataDevolucaoRealizada DATE
+);
+
+CREATE TABLE Emprestimo_Livro(
+	 fk_Emprestimo_idEmprestimo NUMERIC,
+     fk_Livro_ISBN VARCHAR(15),
+     PRIMARY KEY (fk_Emprestimo_idEmprestimo, fk_Livro_ISBN)
+);
+
+
+ALTER TABLE TelUsuario ADD CONSTRAINT FK_TelUsuario_2
+    FOREIGN KEY (fk_Usuario_idUsuario)
+    REFERENCES Usuario (idUsuario)
+    ON DELETE RESTRICT;
+ 
+ 
+ALTER TABLE Livro ADD CONSTRAINT FK_Livro_2
+    FOREIGN KEY (fk_Categoria_idCategoria)
+    REFERENCES Categoria (idCategoria)
+    ON DELETE RESTRICT;
+ 
+ 
+ALTER TABLE Emprestimo ADD CONSTRAINT FK_Emprestimo_2
+    FOREIGN KEY (fk_Usuario_idUsuario)
+    REFERENCES Usuario (idUsuario);
+ 
+ 
+ALTER TABLE Emprestimo_Livro ADD CONSTRAINT FK_Emprestimo_Livro_2
+    FOREIGN KEY (fk_Emprestimo_idEmprestimo)
+    REFERENCES Emprestimo (idEmprestimo);
+    
+
+ALTER TABLE Emprestimo_Livro ADD CONSTRAINT FK_Emprestimo_Livro_3
+    FOREIGN KEY (fk_Livro_ISBN)
+    REFERENCES Livro (ISBN);
+ 
+ALTER TABLE Autor_Livro ADD CONSTRAINT FK_Autor_Livro_2
+    FOREIGN KEY (fk_Autor_idAutor)
+    REFERENCES Autor (idAutor);
+ 
+ALTER TABLE Autor_Livro ADD CONSTRAINT FK_Autor_Livro_3
+    FOREIGN KEY (fk_Livro_ISBN)
+    REFERENCES Livro (ISBN);

@@ -1,0 +1,14 @@
+Exercício de Fixação: Biblioteca Universitária (Fonte: Prof Fernando de Siqueira)
+
+Converta esse miniMundo em um modelo conceitual 
+
+Elabore o modelo conceitual  de um banco de dados que atenda as necessidades de informação de uma biblioteca universitária. São elas:
+
+O cadastro dos usuários com dados pessoais (endereço completo, telefone, etc) e os dados do curso;
+Cada usuário poderá fazer empréstimo de uma ou mais obras. Cada obra poderá ser emprestada mais de uma vez ao mesmo usuário;
+O cadastro das obras que constam no acervo da biblioteca com: titulo, código ISBN, ano de publicação, edição, editora, autor e a devida classificação. 
+As obras são classificadas como: livros científicos, coleções, matemática, história, filosofia, economia, administração e negócios, engenharia, sociologia, literatura, artes, periódicos científicos, periódicos informativos, entretenimento, etc.;
+A língua em que encontra-se a obra. Exemplo: inglês, espanhol, português, etc. 
+O(s) autor(es) da obra, ou seja, cada obra poderá possuir um ou mais autores e cada autor poderá ter escrito uma ou mais obras.
+Para o cadastro de autores deverão constar o nome e a nacionalidade do mesmo; 
+Cada editora das obras, com a respectiva cidade, poderá estar ligada a uma ou mais obras porém cada obra está associada a somente uma editora

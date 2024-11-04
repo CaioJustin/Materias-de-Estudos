@@ -1,0 +1,40 @@
+Elabore o projeto de um banco de dados para dar suporte a uma aplicação que tem como objetivo gerenciar a venda de ingressos para os diversos eventos de uma empresa, sabendo que:
+
+Todo evento tem: nome, data, local, quantidade de ingressos disponíveis, valor base e tem pelo menos uma empresa responsável.
+Cada empresa responsável possui nome, cpnj, endereço, e pelo menos 1 telefone
+Uma empresa pode ser responsável por vários eventos
+Para cada ingresso vendido de um evento, é registrado a data da compra e o valor pago.
+Para cada ingresso vendido, é gerado um código de identificação e só pode ser de um único evento e de um único cliente
+Um evento pode ter diversos ingressos vendidos para diversos clientes
+Um cliente pode comprar mais de um ingresso para um determinado evento, bem como para eventos diferentes
+Todo cliente tem: nome, cpf, data de nascimento, endereço, telefone e email
+Não deve ser possível excluir e nem alterar o CNPJ de uma empresa responsável que possua eventos
+Ao excluir um evento, todos os ingressos vendidos para este evento deve ser excluídos
+Não deve ser possível alterar a identificação de um evento que tenha ingressos vendidos
+Ao alterar o CPF de um cliente, os ingressos vendidos para este cliente devem ter a identificação do comprador atualizado
+Ao excluir um cliente, os ingressos vendidos para este cliente devem ser atualizados para tornar NULL a identificação do comprador
+
+O banco deve estar normalizado de acordo com a 3a forma normal e o projeto deve ser composto por:
+1) Modelo Conceitual
+2) Modelo Lógico
+3) Modelo Físico
+4) o script de criação das tabelas e relacionamentos
+5) Crie um script de Manipulação e Consulta contendo com dados fictícios definidos por você para:
+
+
+Inserir:  10 clientes, 5 empresas responsáveis, 10 eventos sendo: 4 com 1 empresa responsável, 4 com 2 empresas responsáveis e 2 com 3 empresas responsáveis
+
+Alterar:  Email de um cliente; CPF de um cliente;  Endereço de uma empresa responsável; Local e data de um evento
+Excluir: um cliente específico;  ingressos vendidos de um evento; eventos de uma determinada empresa responsável
+Vender 15 ingressos de eventos variados (com e sem vaga, existente e não existente) para clientes diversos (cadastrados e não cadastrados)
+Alterar o valor base de um determinado evento 
+
+Exibir:
+ A lista de ingressos vendidos com o nome do evento e o nome do cliente que comprou, o valor e data da compra
+A lista de eventos com os dados dos seus respectivos responsáveis
+A quantidade de ingressos vendidos e o valor arrecadado por evento, considerando os eventos com no mínimo 100 ingressos vendidos
+A quantidade de ingressos vendidos para um determinado cliente identificado pelo CPF
+O nome de um determinado cliente identificado pelo CPF
+O valor arrecadado com os ingressos vendidos para um determinado evento
+A lista de eventos de um determinado local
+A lista dos clientes que compraram ingressos e a quantidade de ingressos comprados
