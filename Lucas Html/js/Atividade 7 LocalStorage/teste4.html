@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        form { margin-bottom: 20px; }
+        input { padding: 10px; width: 250px; margin-right: 10px; }
+        button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 5px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; display: flex; justify-content: space-between; }
+        .remove-btn { background-color: #dc3545; }
+        .remove-btn:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Adicionar nova tarefa" required>
+        <button type="submit">Adicionar Tarefa</button>
+    </form>
+    
+    <h2>Tarefas:</h2>
+    <ul id="taskList"></ul>
+    
+    <button id="clearTasks">Limpar Todas as Tarefas</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskForm = document.getElementById('taskForm');
+            const taskInput = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+            const clearTasks = document.getElementById('clearTasks');
+
+            // Função para armazenar uma nova tarefa
+            function adicionarTarefa(tarefa) {
+                const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+                tarefas.push(tarefa);
+                localStorage.setItem('tarefas', JSON.stringify(tarefas));
+                exibirTarefas();
+            }
+
+            // Função para exibir tarefas armazenadas
+            function exibirTarefas() {
+                const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+                taskList.innerHTML = '';
+                tarefas.forEach((tarefa, index) => {
+                    taskList.innerHTML += `
+                        <li>
+                            ${tarefa} 
+                            <button class="remove-btn" onclick="removerTarefa(${index})">Remover</button>
+                        </li>`;
+                });
+            }
+
+            // Função para remover uma tarefa
+            window.removerTarefa = function(index) {
+                const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+                tarefas.splice(index, 1);
+                localStorage.setItem('tarefas', JSON.stringify(tarefas));
+                exibirTarefas();
+            };
+
+            // Função para limpar todas as tarefas
+            clearTasks.addEventListener('click', () => {
+                localStorage.removeItem('tarefas');
+                exibirTarefas();
+            });
+
+            // Adiciona evento de submissão do formulário
+            taskForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const tarefa = taskInput.value;
+                adicionarTarefa(tarefa);
+                taskForm.reset();
+            });
+
+            // Exibe tarefas ao carregar a página
+            exibirTarefas();
+        });
+    </script>
+</body>
+</html>

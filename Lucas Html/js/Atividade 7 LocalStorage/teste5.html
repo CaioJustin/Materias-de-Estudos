@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Decisões - Sistema de Informações para IES</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; }
+        h1 { color: #333; }
+        .decision { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Gerenciador de Decisões</h1>
+
+    <form id="decision-form">
+        <label for="title">Título da Decisão:</label><br>
+        <input type="text" id="title" required><br><br>
+
+        <label for="description">Descrição:</label><br>
+        <textarea id="description" required></textarea><br><br>
+
+        <label for="date">Data:</label><br>
+        <input type="date" id="date" required><br><br>
+
+        <button type="submit">Salvar Decisão</button>
+    </form>
+
+    <h2>Decisões Salvas</h2>
+    <div id="decisions-list"></div>
+
+    <script>
+        document.getElementById("decision-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Obtém os valores do formulário
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const date = document.getElementById("date").value;
+            
+            // Cria um objeto para armazenar a decisão
+            const decision = { title, description, date };
+            
+            // Salva a decisão no localStorage
+            let decisions = JSON.parse(localStorage.getItem("decisions")) || [];
+            decisions.push(decision);
+            localStorage.setItem("decisions", JSON.stringify(decisions));
+            
+            // Limpa o formulário
+            document.getElementById("decision-form").reset();
+            
+            // Atualiza a lista de decisões
+            displayDecisions();
+        });
+
+        function displayDecisions() {
+            const decisionsList = document.getElementById("decisions-list");
+            decisionsList.innerHTML = "";
+
+            // Obtém as decisões salvas no localStorage
+            const decisions = JSON.parse(localStorage.getItem("decisions")) || [];
+            
+            // Renderiza cada decisão
+            decisions.forEach((decision, index) => {
+                const decisionDiv = document.createElement("div");
+                decisionDiv.classList.add("decision");
+                decisionDiv.innerHTML = `
+                    <h3>${decision.title}</h3>
+                    <p>${decision.description}</p>
+                    <p><strong>Data:</strong> ${decision.date}</p>
+                    <button onclick="deleteDecision(${index})">Excluir</button>
+                `;
+                decisionsList.appendChild(decisionDiv);
+            });
+        }
+
+        function deleteDecision(index) {
+            let decisions = JSON.parse(localStorage.getItem("decisions"));
+            decisions.splice(index, 1);
+            localStorage.setItem("decisions", JSON.stringify(decisions));
+            displayDecisions();
+        }
+
+        // Carrega as decisões salvas ao abrir a página
+        displayDecisions();
+    </script>
+</body>
+</html>

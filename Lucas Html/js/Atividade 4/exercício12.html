@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário Dinâmico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 200px;
+            height: auto;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+        ul {
+            list-style-type: square;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Perfil do Usuário Dinâmico</h1>
+    
+    <!-- Link para o perfil do usuário -->
+    <p>Para mais informações, visite o <a href="https://www.exemplo.com/perfil" target="_blank">perfil completo</a>.</p>
+
+    <!-- Tabela com informações do usuário -->
+    <h2>Informações Pessoais</h2>
+    <table id="user-info">
+        <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Detalhe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nome</td>
+                <td id="user-name">João da Silva</td>
+            </tr>
+            <tr>
+                <td>Idade</td>
+                <td id="user-age">30 anos</td>
+            </tr>
+            <tr>
+                <td>Ocupação</td>
+                <td id="user-job">Desenvolvedor Web</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Botão para alterar as informações -->
+    <button id="change-info">Alterar Informações</button>
+
+    <!-- Imagens de projetos -->
+    <h2>Projetos Recentes</h2>
+    <p>Aqui estão alguns dos meus projetos recentes:</p>
+    <img src="projeto1.jpg" alt="Projeto 1">
+    <img src="projeto2.jpg" alt="Projeto 2">
+    <img src="projeto3.jpg" alt="Projeto 3">
+
+    <!-- Lista de habilidades -->
+    <h2>Habilidades</h2>
+    <ul id="skills-list">
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>React</li>
+    </ul>
+    <input type="text" id="new-skill" placeholder="Nova habilidade">
+    <button id="add-skill">Adicionar Habilidade</button>
+
+    <!-- Formulário de contato -->
+    <h2>Entre em Contato</h2>
+    <form id="contact-form">
+        <label for="nome">Seu Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">Seu E-mail:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="mensagem">Sua Mensagem:</label><br>
+        <textarea id="mensagem" name="mensagem" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Enviar Mensagem</button>
+        <p class="error" id="form-error">Por favor, preencha todos os campos corretamente!</p>
+    </form>
+
+    <script>
+        // Função para alterar informações do usuário
+        document.getElementById('change-info').addEventListener('click', function() {
+            // Dados alterados dinamicamente
+            const userName = prompt('Digite o novo nome:', 'João da Silva');
+            const userAge = prompt('Digite a nova idade:', '30 anos');
+            const userJob = prompt('Digite a nova ocupação:', 'Desenvolvedor Web');
+
+            if (userName) document.getElementById('user-name').innerText = userName;
+            if (userAge) document.getElementById('user-age').innerText = userAge;
+            if (userJob) document.getElementById('user-job').innerText = userJob;
+        });
+
+        // Função para adicionar nova habilidade
+        document.getElementById('add-skill').addEventListener('click', function() {
+            const newSkill = document.getElementById('new-skill').value;
+            if (newSkill) {
+                const li = document.createElement('li');
+                li.textContent = newSkill;
+                document.getElementById('skills-list').appendChild(li);
+                document.getElementById('new-skill').value = ''; // Limpa o campo
+            }
+        });
+
+        // Função para validar o formulário de contato
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio padrão
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const errorElement = document.getElementById('form-error');
+
+            // Verifica se todos os campos estão preenchidos
+            if (nome === '' || email === '' || mensagem === '') {
+                errorElement.style.display = 'block'; // Mostra a mensagem de erro
+            } else {
+                errorElement.style.display = 'none'; // Oculta a mensagem de erro
+                alert('Mensagem enviada com sucesso!');
+                document.getElementById('contact-form').reset(); // Limpa o formulário
+            }
+        });
+    </script>
+</body>
+</html>
